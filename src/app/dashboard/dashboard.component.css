@@ -1,13 +1,13 @@
-.container{
-    word-wrap: break-word;
-    padding-top: 2%;
+.container {
+  word-wrap: break-word;
+  padding-top: 2%;
 }
-.shadows{
-    box-shadow: 5px 5px 10px grey;
+.shadows {
+  box-shadow: 5px 5px 10px grey;
 }
-h4{
-    color:  #a64dff;
+h4 {
+  color: #a64dff;
 }
-h5{
-    color: skyblue;
+h5 {
+  color: skyblue;
 }

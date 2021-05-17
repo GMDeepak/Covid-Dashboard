@@ -91,10 +91,10 @@ export class DashboardComponent implements OnInit {
     if (this.myChart) {
       this.myChart.destroy();
       this.myCharts.destroy();
-      this.acitveNum=[];
-      this.confirmedNum=[];
-      this.deaths=[];
-      this.recoveredNum=[];
+      this.acitveNum = [];
+      this.confirmedNum = [];
+      this.deaths = [];
+      this.recoveredNum = [];
     }
 
     this.service.getDailyData(this.country).subscribe((data) => {
@@ -105,70 +105,69 @@ export class DashboardComponent implements OnInit {
         this.deaths.push(data[i].Deaths);
         this.recoveredNum.push(data[i].Recovered);
       }
-    });
 
-    Chart.register(
-      ArcElement,
-      LineElement,
-      BarElement,
-      PointElement,
-      BarController,
-      BubbleController,
-      DoughnutController,
-      LineController,
-      PieController,
-      PolarAreaController,
-      RadarController,
-      ScatterController,
-      CategoryScale,
-      LinearScale,
-      LogarithmicScale,
-      RadialLinearScale,
-      TimeScale,
-      TimeSeriesScale,
-      Filler,
-      Legend,
-      Title,
-      Tooltip
-    );
-    this.myChart = new Chart('myChart', {
-      type: 'line',
-      data: {
-        labels: this.labels,
-        datasets: [
-          {
-            label: 'Active Data',
-            data: this.acitveNum,
-            borderWidth: 1,
-            borderColor: 'red',
-          },
-          {
-            label: 'Confirmed Data',
-            data: this.confirmedNum,
-            borderWidth: 1,
-            borderColor: '#0000cc',
-          },
-        ],
-      },
+      Chart.register(
+        ArcElement,
+        LineElement,
+        BarElement,
+        PointElement,
+        BarController,
+        BubbleController,
+        DoughnutController,
+        LineController,
+        PieController,
+        PolarAreaController,
+        RadarController,
+        ScatterController,
+        CategoryScale,
+        LinearScale,
+        LogarithmicScale,
+        RadialLinearScale,
+        TimeScale,
+        TimeSeriesScale,
+        Filler,
+        Legend,
+        Title,
+        Tooltip
+      );
+      this.myChart = new Chart('myChart', {
+        type: 'line',
+        data: {
+          labels: this.labels,
+          datasets: [
+            {
+              label: 'Active Data',
+              data: this.acitveNum,
+              borderWidth: 1,
+              borderColor: 'red',
+            },
+            {
+              label: 'Confirmed Data',
+              data: this.confirmedNum,
+              borderWidth: 1,
+              borderColor: '#0000cc',
+            },
+          ],
+        },
+      });
+      this.myCharts = new Chart('myCharts', {
+        type: 'scatter',
+        data: {
+          labels: this.labels,
+          datasets: [
+            {
+              label: 'Death Data',
+              data: this.deaths,
+              borderColor: '#8a8a5c',
+            },
+            {
+              label: 'Recovered Data',
+              data: this.recoveredNum,
+              borderColor: '#00ffaa',
+            },
+          ],
+        },
+      });
     });
-    this.myCharts = new Chart('myCharts', {
-      type: 'scatter',
-      data: {
-        labels: this.labels,
-        datasets: [
-          {
-            label: 'Death Data',
-            data: this.deaths,
-            borderColor: '#8a8a5c',
-          },
-          {
-            label: 'Recovered Data',
-            data: this.recoveredNum,
-            borderColor: '#00ffaa',
-          },
-        ],
-      },
-    });
-
   }
 }
