@@ -102,10 +102,7 @@ export class DashboardComponent implements OnInit {
       this.myChart.destroy();
       this.myCharts.destroy();
     }
-    this.createChart();
-  }
-
-  createChart() {
+  
     Chart.register(
       ArcElement,
       LineElement,
@@ -168,5 +165,7 @@ export class DashboardComponent implements OnInit {
         ],
       },
     });
+
   }
+
 }
