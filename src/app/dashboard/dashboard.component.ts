@@ -88,6 +88,15 @@ export class DashboardComponent implements OnInit {
       this.recovered = data[index].Recovered;
     });
 
+    if (this.myChart) {
+      this.myChart.destroy();
+      this.myCharts.destroy();
+      this.acitveNum=[];
+      this.confirmedNum=[];
+      this.deaths=[];
+      this.recoveredNum=[];
+    }
+
     this.service.getDailyData(this.country).subscribe((data) => {
       var index = data.length - 1;
       for (var i = index; i > index - 30; i--) {
@@ -98,11 +107,6 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    if (this.myChart) {
-      this.myChart.destroy();
-      this.myCharts.destroy();
-    }
-  
     Chart.register(
       ArcElement,
       LineElement,
@@ -167,5 +171,4 @@ export class DashboardComponent implements OnInit {
     });
 
   }
-
 }

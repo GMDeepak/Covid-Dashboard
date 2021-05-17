@@ -1,47 +1,64 @@
 <app-header></app-header>
 
-<div class="row two">
-  <h5 style="text-align: center">World Wide</h5>
-  <mat-card class="one" style="background-color: aquamarine">
-    <mat-card-header>
-      <mat-card-title>New Confirmed</mat-card-title>
-      <mat-card-subtitle>{{ newConfirmed }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one">
-    <mat-card-header>
-      <mat-card-title>Total Confirmed</mat-card-title>
-      <mat-card-subtitle>{{ totalConfirmed }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one" style="background-color: aquamarine">
-    <mat-card-header>
-      <mat-card-title>New Deaths</mat-card-title>
-      <mat-card-subtitle>{{ newDeaths }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one">
-    <mat-card-header>
-      <mat-card-title>Total Deaths</mat-card-title>
-      <mat-card-subtitle>{{ totalDeaths }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one" style="background-color: aquamarine">
-    <mat-card-header>
-      <mat-card-title>New Recovered</mat-card-title>
-      <mat-card-subtitle>{{ newRecovered }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one">
-    <mat-card-header>
-      <mat-card-title>Total Recovered</mat-card-title>
-      <mat-card-subtitle>{{ totalRecovered }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div class="container">
+  <h3 style="text-align: center">World Wide</h3>
+  <div class="row">
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>New Confirmed</h4>
+          <h5>{{ newConfirmed | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Total Confirmed</h4>
+          <h5>{{ totalConfirmed | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>New Deaths</h4>
+          <h5>{{ newDeaths | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Total Deaths</h4>
+          <h5>{{ totalDeaths | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>New Recovered</h4>
+          <h5>{{ newRecovered | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Total Recovered</h4>
+          <h5>{{ totalRecovered | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
-<div class="row">
-  <h5 style="text-align: center">Country Data</h5>
-  <div class="three">
+
+<div class="container">
+  <div class="row">
+    <h3>Regional</h3>
+  </div>
+  <div class="row">
     <select
       style="width: 250px; height: 35px"
       (change)="getCountry($event.target.value)"
@@ -49,49 +66,62 @@
       <option *ngFor="let country of countries" value="{{ country.Country }}">
         {{ country.Country }}
       </option></select
-    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    >&nbsp;&nbsp;&nbsp;&nbsp;
 
     <button
       type="submit"
       mat-raised-button
-      color="accent"
+      color="primary"
       (click)="getCountryData()"
     >
       Submit
     </button>
   </div>
 </div>
-<div class="row four" *ngIf="active">
-  <mat-card class="one" style="background-color: #c0ebcc">
-    <mat-card-header>
-      <mat-card-title>Active</mat-card-title>
-      <mat-card-subtitle>{{ active }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one">
-    <mat-card-header>
-      <mat-card-title>Confirmed</mat-card-title>
-      <mat-card-subtitle>{{ confirmed }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one" style="background-color: #e1ebe4">
-    <mat-card-header>
-      <mat-card-title>Death</mat-card-title>
-      <mat-card-subtitle>{{ death }}</mat-card-subtitle>
-    </mat-card-header> </mat-card
-  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <mat-card class="one">
-    <mat-card-header>
-      <mat-card-title>Recovered</mat-card-title>
-      <mat-card-subtitle>{{ recovered }}</mat-card-subtitle>
-    </mat-card-header>
-  </mat-card>
+
+<div class="container" *ngIf="active">
+  <div class="row">
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Active</h4>
+          <h5>{{ active | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Confirmed</h4>
+          <h5>{{ confirmed | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Death</h4>
+          <h5>{{ death | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col-md-2">
+      <mat-card class="shadows">
+        <mat-card-content>
+          <h4>Recovered</h4>
+          <h5>{{ recovered | number }}</h5>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </div>
 
-<div class="row">
-  <div class="five">
-    <div class="chart">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
       <canvas id="myChart"></canvas>
+    </div>
+    <div class="col-md-6">
       <canvas id="myCharts"></canvas>
     </div>
   </div>

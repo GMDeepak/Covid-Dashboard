@@ -1,28 +1,13 @@
-.one{
-    max-width: fit-content;
-    max-height: 80px;
+.container{
+    word-wrap: break-word;
+    padding-top: 2%;
 }
-.two{
-    padding-top: 20px;
-    padding-left: 40px;
-    padding-bottom: 20px;
+.shadows{
+    box-shadow: 5px 5px 10px grey;
 }
-.three{
-    padding-top: 20px;
-    padding-left: 450px;
-    padding-bottom: 20px;
+h4{
+    color:  #a64dff;
 }
-.chart{
-    width: 700px;
-    height: 700px;
-    
-}
-.four{
-    padding-top: 20px;
-    padding-left: 370px;
-    padding-bottom: 20px;
-}
-.five{
-    padding-left: 300px;
-    padding-top: 20px;
+h5{
+    color: skyblue;
 }
