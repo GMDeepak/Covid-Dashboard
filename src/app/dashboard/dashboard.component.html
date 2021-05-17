@@ -1,0 +1,100 @@
+<app-header></app-header>
+
+<div class="row two">
+  <h5 style="text-align: center">World Wide</h5>
+  <mat-card class="one" style="background-color: aquamarine">
+    <mat-card-header>
+      <mat-card-title>New Confirmed</mat-card-title>
+      <mat-card-subtitle>{{ newConfirmed }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one">
+    <mat-card-header>
+      <mat-card-title>Total Confirmed</mat-card-title>
+      <mat-card-subtitle>{{ totalConfirmed }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one" style="background-color: aquamarine">
+    <mat-card-header>
+      <mat-card-title>New Deaths</mat-card-title>
+      <mat-card-subtitle>{{ newDeaths }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one">
+    <mat-card-header>
+      <mat-card-title>Total Deaths</mat-card-title>
+      <mat-card-subtitle>{{ totalDeaths }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one" style="background-color: aquamarine">
+    <mat-card-header>
+      <mat-card-title>New Recovered</mat-card-title>
+      <mat-card-subtitle>{{ newRecovered }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one">
+    <mat-card-header>
+      <mat-card-title>Total Recovered</mat-card-title>
+      <mat-card-subtitle>{{ totalRecovered }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+<div class="row">
+  <h5 style="text-align: center">Country</h5>
+  <div class="three">
+    <select
+      style="width: 250px; height: 35px"
+      (change)="getCountry($event.target.value)"
+    >
+      <option *ngFor="let country of countries" value="{{ country.Country }}">
+        {{ country.Country }}
+      </option></select
+    >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="accent"
+      (click)="getCountryData()"
+    >
+      Submit
+    </button>
+  </div>
+</div>
+<div class="row four" *ngIf="active">
+  <mat-card class="one" style="background-color: red">
+    <mat-card-header>
+      <mat-card-title>Active</mat-card-title>
+      <mat-card-subtitle>{{ active }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one" style="background-color: #0000cc">
+    <mat-card-header>
+      <mat-card-title>Confirmed</mat-card-title>
+      <mat-card-subtitle>{{ confirmed }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one" style="background-color: #8a8a5c">
+    <mat-card-header>
+      <mat-card-title>Death</mat-card-title>
+      <mat-card-subtitle>{{ death }}</mat-card-subtitle>
+    </mat-card-header> </mat-card
+  >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <mat-card class="one" style="background-color: #00ffaa">
+    <mat-card-header>
+      <mat-card-title>Recovered</mat-card-title>
+      <mat-card-subtitle>{{ recovered }}</mat-card-subtitle>
+    </mat-card-header>
+  </mat-card>
+</div>
+
+<div class="row">
+  <div class="five">
+    <div class="chart">
+      <canvas id="myChart"></canvas>
+      <canvas id="myCharts"></canvas>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

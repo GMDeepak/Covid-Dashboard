@@ -1,0 +1,28 @@
+.one{
+    max-width: fit-content;
+    max-height: 80px;
+}
+.two{
+    padding-top: 20px;
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+.three{
+    padding-top: 20px;
+    padding-left: 450px;
+    padding-bottom: 20px;
+}
+.chart{
+    width: 700px;
+    height: 700px;
+    
+}
+.four{
+    padding-top: 20px;
+    padding-left: 370px;
+    padding-bottom: 20px;
+}
+.five{
+    padding-left: 300px;
+    padding-top: 20px;
+}
